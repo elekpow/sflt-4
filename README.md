@@ -124,7 +124,11 @@ runcmd:
 Для теста были созданы 3 виртуальные машины
 
 
+```
 
+```
+
+[Terraform Playbook ](https://github.com/elekpow/sflt-4/blob/main/sflt-4/main_2.tf)
 
 Веб-консоль Yandex Cloud:
 
@@ -136,8 +140,10 @@ runcmd:
 
 ![group.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/group2.JPG)
 
-система работает , для примера открыта старница в браузере и одновременно в режиме инкогнито
-
+старница в браузере 
 
 ![page2_1.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/page2_1.JPG)
 
+curl запрос на 80 порт
+
+![nginx_page.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/nginx_page.JPG)
