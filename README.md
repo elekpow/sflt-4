@@ -47,16 +47,35 @@
 
 ### Выполнения задания 1
 
-Через terraform создаем 2 идентичные виртуальные машины
+Через terraform создаем 2 идентичные виртуальные машины, содаем таргет группу и сетевой балансировщик нагрузки
 
-Terraform Playbook
+[Terraform Playbook ](https://github.com/elekpow/sflt-4/blob/main/sflt-4/main.tf)
 
+Также через Terraform , применяя runcmd устанавлвиваем nginx , и в index.html прописываем имя и ip адрес виртуальной машины
 
+```
+packages:
+  - nginx
+
+runcmd:
+  - cp /var/www/html/index.nginx-debian.html /var/www/html/index.html
+  - echo "$(hostname | awk ' {print $1 " | <br/>"}') " >> /var/www/html/index.html
+  - echo "$(ip address | grep "inet " | awk ' {print $4,"(", $2,")","| <br/>"}') " >> /var/www/html/index.html
+  - service nginx reload
+
+```
+
+Веб-консоль Yandex Cloud:
+
+Балансер
 
 ![balancer.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/balancer.JPG)
 
+Группа
+
 ![group.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/group.JPG)
 
+система работает , для примера открыта старница в браузере и одновременно в режиме инкогнито
 
 ![page1.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/page1.JPG)
 
