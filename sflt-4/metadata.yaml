@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/NTJ9DmsqtiiQpivsKLjYOrmQ65uReDMUzfS/HobpR igor@debian
+
+disable_root: true
+
+package_update: true
+packages:
+  - nginx
+
+runcmd:
+  - cp /var/www/html/index.nginx-debian.html /var/www/html/index.html
+  - echo "$(hostname | awk ' {print $1 " | <br/>"}') " >> /var/www/html/index.html
+  - echo "$(ip address | grep "inet " | awk ' {print $4,"(", $2,")","| <br/>"}') " >> /var/www/html/index.html
+  - service nginx reload
