@@ -55,7 +55,7 @@
 
 в varibles определяется количество виртуальных машин и  задаются имена
 
-[Terraform varibles ](https://github.com/elekpow/sflt-4/blob/main/sflt-4/varibles.tf)
+[Terraform variables ](https://github.com/elekpow/sflt-4/blob/main/sflt-4/variables.tf)
 
 
 Также через Terraform , применяя runcmd устанавлвиваем nginx , и в index.html прописываем имя и ip адрес виртуальной машины
