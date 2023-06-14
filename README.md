@@ -119,3 +119,25 @@ runcmd:
 ----
 
 ### Выполнения задания 2
+
+
+Для теста были созданы 3 виртуальные машины
+
+
+
+
+Веб-консоль Yandex Cloud:
+
+Балансер
+
+![balancer.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/balancer2.JPG)
+
+Группа
+
+![group.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/group2.JPG)
+
+система работает , для примера открыта старница в браузере и одновременно в режиме инкогнито
+
+
+![page2_1.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/page2_1.JPG)
+
