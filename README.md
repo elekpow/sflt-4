@@ -37,7 +37,7 @@
 
 *В качестве результата пришлите:*
 
-*1. Terraform Playbook.*
+*1. Terraform Playbook.
 
 *2. Скриншот статуса балансировщика и целевой группы.*
 
@@ -47,16 +47,21 @@
 
 ### Выполнения задания 1
 
+Через terraform создаем 2 идентичные виртуальные машины
+
+Terraform Playbook
 
 
 
+![balancer.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/balancer.JPG)
+
+![group.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/group.JPG)
 
 
+![page1.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/page1.JPG)
 
 
-
-![image_1.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/image_1.JPG)
-
+![page2.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/page2.JPG)
 
 
 ---
