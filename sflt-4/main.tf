@@ -53,11 +53,11 @@ resource "yandex_vpc_subnet" "subnet-1" {
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 #---------snapshot-------------------
-#resource "yandex_compute_snapshot" "snapshot-1" {
-#  count = "${length(var.hostnames)}"
-#  name           = "disk-snapshot-${count.index}"
-#  source_disk_id = "${yandex_compute_instance.vm[count.index].boot_disk[0].disk_id}"
-#}
+resource "yandex_compute_snapshot" "snapshot-1" {
+  count = "${length(var.hostnames)}"
+  name           = "disk-snapshot-${count.index}"
+  source_disk_id = "${yandex_compute_instance.vm[count.index].boot_disk[0].disk_id}"
+}
 
 #---------balancer-------------------
 resource "yandex_lb_network_load_balancer" "lb-1" {

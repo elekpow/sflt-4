@@ -47,7 +47,8 @@
 
 ### Выполнения задания 1
 
-Через terraform создаем 2 идентичные виртуальные машины, содаем таргет группу и сетевой балансировщик нагрузки
+Через terraform создаем 2 идентичные виртуальные машины, создаем таргет группу и сетевой балансировщик нагрузки,
+также для виртальных машин включено создание снимков дисков 
 
 [Terraform Playbook ](https://github.com/elekpow/sflt-4/blob/main/sflt-4/main.tf)
 
@@ -121,10 +122,28 @@ runcmd:
 ### Выполнения задания 2
 
 
-Для теста были созданы 3 виртуальные машины
-
+Что бы проверить возможность балансировщика нагрузки были созданы 3 виртуальные машины
 
 ```
+ scale_policy {
+    fixed_scale {
+      size = 3
+    }
+  }
+```
+
+
+для установки nginx также в metadata прописаны параметры в runcmd
+
+```
+packages:
+  - nginx
+
+runcmd:
+  - cp /var/www/html/index.nginx-debian.html /var/www/html/index.html
+  - echo "$(hostname | awk ' {print $1 " | <br/>"}') " >> /var/www/html/index.html
+  - echo "$(ip address | grep "inet " | awk ' {print $4,"(", $2,")","| <br/>"}') " >> /var/www/html/index.html
+  - service nginx reload
 
 ```
 
@@ -147,3 +166,6 @@ runcmd:
 curl запрос на 80 порт
 
 ![nginx_page.JPG](https://github.com/elekpow/sflt-4/blob/main/sflt-4/nginx_page.JPG)
+
+
+переодические запросы curl показали, что балансировщик перенаправляет запросы  на целевуую группу. 
